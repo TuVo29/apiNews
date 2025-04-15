@@ -43,4 +43,4 @@ ENV PORT=10000
 EXPOSE ${PORT}
 
 # Run migrations and start the server
-CMD php artisan migrate --force || true && php artisan serve --host=0.0.0.0 --port=${PORT}
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT}
