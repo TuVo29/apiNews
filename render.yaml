@@ -21,3 +21,17 @@ services:
         value: avnadmin
       - key: DB_PASSWORD
         value: AVNS_Pki5NnUSN2W7YWmMreu
+      - key: MYSQL_ATTR_SSL_VERIFY_SERVER_CERT
+        value: "false"
+      - key: DB_SSL
+        value: "true"
+      - key: MYSQL_ATTR_SSL_CA
+        value: ./ca.pem
+      - key: DB_SOCKET
+        value: ""
+      - key: DB_CONNECT_TIMEOUT
+        value: "60"
+      - key: PHP_MEMORY_LIMIT
+        value: "512M"
+      - key: PHP_MAX_EXECUTION_TIME
+        value: "120"
