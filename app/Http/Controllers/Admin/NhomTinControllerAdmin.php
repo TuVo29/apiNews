@@ -23,6 +23,25 @@ class NhomTinControllerAdmin extends Controller
         return new NhomTinResource($nhomTin); // Trả về nhóm tin chi tiết
     }
 
+    public function store(Request $request)
+    {
+        // Validate dữ liệu đầu vào
+        $request->validate([
+            'Ten_nhomtin' => 'required|string|max:255',
+            'Trangthai' => 'boolean'
+        ]);
+
+        // Tạo mới bản ghi nhóm tin
+        $nhomTin = NhomTin::create([
+            'Ten_nhomtin' => $request->Ten_nhomtin,
+            'Trangthai' => $request->Trangthai ?? true // Mặc định true nếu không truyền
+        ]);
+
+        // Trả về dữ liệu nhóm tin vừa tạo
+        return new NhomTinResource($nhomTin);
+    }
+
+
     // Sửa nhóm tin
     public function update(Request $request, $id)
     {

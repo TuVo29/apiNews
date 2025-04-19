@@ -14,11 +14,11 @@ class BinhLuan extends Model
     public $timestamps = true;
 
     protected $fillable = [
+        'Id_tin',
         'email',
         'Thoigian',
         'Noidung',
-        'Trangthai',
-        'Id_tin'
+        'Trangthai'
     ];
 
     protected $casts = [

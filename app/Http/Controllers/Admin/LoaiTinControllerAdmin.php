@@ -23,6 +23,23 @@ class LoaiTinControllerAdmin extends Controller
         return new LoaiTinResource($loaiTin);
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'Ten_loaitin' => 'required|string|max:255',
+            'Trangthai' => 'boolean'
+        ]);
+
+        // Tạo mới loại tin
+        $loaiTin = LoaiTin::create([
+            'Ten_loaitin' => $request->Ten_loaitin,
+            'Trangthai' => $request->Trangthai ?? true // Mặc định là true nếu không gửi
+        ]);
+
+        return new LoaiTinResource($loaiTin);
+    }
+
+    
     // Cập nhật loại tin
     public function update(Request $request, $id)
     {
